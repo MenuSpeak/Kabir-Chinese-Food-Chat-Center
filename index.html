@@ -1312,43 +1312,38 @@
 
 
 
-
 <!-- GALLERY SECTION -->
 <div class="gallery-section" id="gallery">
-  <div class="gold-line"></div>
-  
   <div class="gallery-container" id="galleryContainer">
-    <!-- Images will be added by JavaScript -->
+    <img src="1.jpeg" onclick="openLightbox(0)">
+    <img src="2.jpeg" onclick="openLightbox(1)">
+    <img src="3.jpeg" onclick="openLightbox(2)">
+    <img src="4.jpeg" onclick="openLightbox(3)">
+    <img src="5.jpeg" onclick="openLightbox(4)">
+    <img src="6.jpeg" onclick="openLightbox(5)">
+    <img src="7.jpeg" onclick="openLightbox(6)">
+    <img src="8.jpeg" onclick="openLightbox(7)">
+    <img src="9.jpeg" onclick="openLightbox(8)">
+    <img src="10.jpeg" onclick="openLightbox(9)">
+    <img src="11.jpeg" onclick="openLightbox(10)">
+    <img src="12.jpeg" onclick="openLightbox(11)">
+    <img src="13.jpeg" onclick="openLightbox(12)">
+    <img src="14.jpeg" onclick="openLightbox(13)">
+    <img src="15.jpeg" onclick="openLightbox(14)">
+    <img src="16.jpeg" onclick="openLightbox(15)">
+    <img src="17.jpeg" onclick="openLightbox(16)">
+    <img src="18.jpeg" onclick="openLightbox(17)">
+    <img src="19.jpeg" onclick="openLightbox(18)">
+    <img src="20.jpeg" onclick="openLightbox(19)">
   </div>
 </div>
 
-<!-- LIGHTBOX MODAL -->
+<!-- LIGHTBOX -->
 <div class="lightbox-modal" id="lightboxModal">
-  <button class="close-lightbox" id="closeLightbox">&times;</button>
-  <button class="prev-btn" id="prevBtn">&#10094;</button>
-  <button class="next-btn" id="nextBtn">&#10095;</button>
-  <div class="lightbox-content">
-    <img id="lightboxImage" src="1.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="2.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="3.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="4.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="5.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="6.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="7.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="8.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="9.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="10.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="11.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="12.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="13.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="14.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="15.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="16.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="17.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="18.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="19.jpeg" alt="The Gallery">
-    <img id="lightboxImage" src="20.jpeg" alt="The Gallery">
-  </div>
+  <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+  <span class="prev-btn" onclick="prevImage()">&#10094;</span>
+  <img id="lightboxImage">
+  <span class="next-btn" onclick="nextImage()">&#10095;</span>
 </div>
 
 
