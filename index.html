@@ -1613,94 +1613,36 @@
 
 
 
+<script>
+const images = [
+ "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
+ "6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg",
+ "11.jpeg","12.jpeg","13.jpeg","14.jpeg","15.jpeg",
+ "16.jpeg","17.jpeg","18.jpeg","19.jpeg","20.jpeg"
+];
 
+let currentIndex = 0;
 
-// Gallery Data - Simple images only
-const galleryData = [];
-for (let i = 1; i <= 20; i++) {
-  galleryData.push({
-    id: i,
-    image: `img${i}.jpeg`
-  });
+function openLightbox(index){
+  currentIndex = index;
+  document.getElementById("lightboxImage").src = images[currentIndex];
+  document.getElementById("lightboxModal").style.display = "flex";
 }
 
-// Gallery Functionality
-let currentGalleryIndex = 0;
-
-function renderGalleryItems() {
-  const galleryContainer = document.getElementById('galleryContainer');
-  
-  if (galleryData.length === 0) {
-    galleryContainer.innerHTML = '';
-    return;
-  }
-  
-  galleryContainer.innerHTML = galleryData.map((item, index) => `
-    <div class="gallery-item" data-index="${index}" onclick="openLightbox(${index})">
-      <img src="${item.image}" alt="Gallery Image ${item.id}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIyNSIgdmlld0JveD0iMCAwIDMwMCAyMjUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjI1IiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik00MCA0MEgyNjBNNDAgODBIMjYwTTQwIDEyMEgyNjBNNDAgMTYwSDI2ME00MCAyMDBIMjYwIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMTEyIiByPSIzMCIgc3Ryb2tlPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik0xMjAgOTBMMTgwIDEzNU0xODAgOTBMMTIwIDEzNSIgc3Ryb2tlPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
-    </div>
-  `).join('');
+function closeLightbox(){
+  document.getElementById("lightboxModal").style.display = "none";
 }
 
-function openLightbox(index) {
-  currentGalleryIndex = index;
-  const item = galleryData[index];
-  
-  document.getElementById('lightboxImage').src = item.image;
-  document.getElementById('lightboxModal').classList.add('active');
+function nextImage(){
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("lightboxImage").src = images[currentIndex];
 }
 
-function closeLightbox() {
-  document.getElementById('lightboxModal').classList.remove('active');
+function prevImage(){
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById("lightboxImage").src = images[currentIndex];
 }
-
-function showNextImage() {
-  currentGalleryIndex = (currentGalleryIndex + 1) % galleryData.length;
-  const item = galleryData[currentGalleryIndex];
-  
-  document.getElementById('lightboxImage').src = item.image;
-}
-
-function showPrevImage() {
-  currentGalleryIndex = (currentGalleryIndex - 1 + galleryData.length) % galleryData.length;
-  const item = galleryData[currentGalleryIndex];
-  
-  document.getElementById('lightboxImage').src = item.image;
-}
-
-// Initialize Gallery when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Render gallery
-  renderGalleryItems();
-  
-  // Lightbox controls
-  document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
-  document.getElementById('prevBtn').addEventListener('click', showPrevImage);
-  document.getElementById('nextBtn').addEventListener('click', showNextImage);
-  
-  // Close lightbox on outside click
-  document.getElementById('lightboxModal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('lightboxModal')) {
-      closeLightbox();
-    }
-  });
-  
-  // Keyboard navigation for lightbox
-  document.addEventListener('keydown', (e) => {
-    if (document.getElementById('lightboxModal').classList.contains('active')) {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNextImage();
-      if (e.key === 'ArrowLeft') showPrevImage();
-    }
-  });
-});
-
-// Make functions available globally
-window.openLightbox = openLightbox;
-window.closeLightbox = closeLightbox;
-window.showNextImage = showNextImage;
-window.showPrevImage = showPrevImage;
-
+</script>
 
 
 
